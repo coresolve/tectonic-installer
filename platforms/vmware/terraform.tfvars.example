@@ -40,4 +40,26 @@ tectonic_vmware_username = "Administrator@vsphere.local"
 tectonic_vmware_password = "VMware123!"
 tectonic_vmware_server = "192.168.246.20"
 tectonic_vmware_sslselfsigned = true
+<<<<<<< HEAD
 tectonic_vmware_folder = "vsphere"
+=======
+tectonic_vmware_folder = "vsphere"	
+
+
+tectonic_vmware_vm_etcdips = {
+  "0" = "192.168.246.10/24"
+}
+
+tectonic_vmware_vm_masterips = {
+  "0" = "192.168.246.20/24"
+}
+
+tectonic_vmware_vm_workerips = {
+  "0" = "192.168.246.30/24"
+}
+
+tectonic_vmware_vm_etcdgateway = "192.168.246.1"
+tectonic_vmware_vm_mastergateway = "192.168.246.1"
+tectonic_vmware_vm_workergateway = "192.168.246.1"
+tectonic_vmware_vm_dns = "192.168.246.100"
+>>>>>>> This commit moves VMware manifests to static IP networking and removes the AWS Route53 dependency. End User is expected to create DNS records in advance since the user already pre-allocates the IP addresses

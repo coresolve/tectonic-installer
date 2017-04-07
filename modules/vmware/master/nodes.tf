@@ -21,7 +21,12 @@ resource "vsphere_virtual_machine" "master_node" {
     guestinfo.coreos.config.data = "${base64encode(ignition_config.master.*.rendered[count.index])}"
     // UUID enablement is requiremd for Kubernetes vSphere Integration
     // see; https://kubernetes.io/docs/getting-started-guides/vsphere/
+<<<<<<< HEAD
     disk.enableUUID = "1"
+=======
+    disk.enableUUID = "1" 
+
+>>>>>>> This commit moves VMware manifests to static IP networking and removes the AWS Route53 dependency. End User is expected to create DNS records in advance since the user already pre-allocates the IP addresses
   }
 
 }
