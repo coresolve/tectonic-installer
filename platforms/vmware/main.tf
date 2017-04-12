@@ -13,7 +13,7 @@ resource "vsphere_folder" "tectonic_vsphere_folder" {
 module "etcd" {
   source = "../../modules/vmware/etcd"
 
-  count                   = "1"
+  count                   = "${var.tectonic_etcd_count}"
   cluster_name            = "${var.tectonic_cluster_name}"
   core_public_keys        = ["${module.secrets.core_public_key_openssh}"]
   container_image         = "${var.tectonic_container_images["etcd"]}"
@@ -39,6 +39,7 @@ module "etcd" {
 module "masters" {
   source = "../../modules/vmware/master"
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   resolv_conf_content = <<EOF
 search ${var.tectonic_base_domain}
@@ -48,6 +49,9 @@ EOF
 =======
   
 >>>>>>> This commit moves VMware manifests to static IP networking and removes the AWS Route53 dependency. End User is expected to create DNS records in advance since the user already pre-allocates the IP addresses
+=======
+  count                   = "${var.tectonic_master_count}"
+>>>>>>> Update Terraform.tfvars example with comments, Fix issue with the main.tf regarding count of machines
   kubeconfig_content           = "${module.bootkube.kubeconfig}"
   cluster_name                 = "${var.tectonic_cluster_name}"
   count                        = "${var.tectonic_master_count}"
@@ -81,6 +85,7 @@ EOF
 module "workers" {
   source = "../../modules/vmware/worker"
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   resolv_conf_content = <<EOF
 search ${var.tectonic_base_domain}
@@ -90,6 +95,9 @@ EOF
 =======
   
 >>>>>>> This commit moves VMware manifests to static IP networking and removes the AWS Route53 dependency. End User is expected to create DNS records in advance since the user already pre-allocates the IP addresses
+=======
+  count                   = "${var.tectonic_worker_count}"
+>>>>>>> Update Terraform.tfvars example with comments, Fix issue with the main.tf regarding count of machines
   kubeconfig_content           = "${module.bootkube.kubeconfig}"
   cluster_name                 = "${var.tectonic_cluster_name}"
   count                        = "${var.tectonic_worker_count}"
