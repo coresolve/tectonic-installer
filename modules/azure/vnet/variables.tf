@@ -1,6 +1,5 @@
-variable "tectonic_azure_external_vnet_id" {
-  type    = "string"
-  default = ""
+variable "tectonic_cluster_name" {
+  type = "string"
 }
 
 variable "tectonic_azure_vnet_cidr_block" {
@@ -8,18 +7,20 @@ variable "tectonic_azure_vnet_cidr_block" {
   default = "10.0.0.0/16"
 }
 
-variable "tectonic_cluster_name" {
-  type = "string"
+variable "tectonic_azure_external_vnet_id" {
+  type    = "string"
+  default = ""
 }
 
-variable "tectonic_azure_external_vnet_master_subnets" {
-  type    = "list"
-  default = []
+
+variable "tectonic_azure_external_master_subnet" {
+  type    = "string"
+  default = ""
 }
 
-variable "tectonic_azure_external_vnet_worker_subnets" {
-  type    = "list"
-  default = []
+variable "tectonic_azure_external_worker_subnet" {
+  type    = "string"
+  default = ""
 }
 
 variable "resource_group_name" {
@@ -27,6 +28,14 @@ variable "resource_group_name" {
 }
 
 variable "vnet_cidr_block" {
+  type = "string"
+}
+
+variable "master_subnet_id" {
+  type = "string"
+}
+
+variable "worker_subnet_id" {
   type = "string"
 }
 

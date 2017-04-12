@@ -55,8 +55,26 @@ variable "tectonic_azure_vnet_cidr_block" {
   description = "Block of IP addresses used by the Resource Group. This should not overlap with any other networks, such as a private datacenter connected via ExpressRoute."
 }
 
-variable "tectonic_azure_external_vnet_id" {
+variable "tectonic_azure_external_vnet_name" {
   type        = "string"
-  description = "ID of an existing Virtual Network to launch nodes into. Example: VNet1. Leave blank to create a new Virtual Network."
+  description = "Name of an existing Virtual Network to launch nodes into. Example: VNet1. Leave blank to create a new Virtual Network."
+  default     = ""
+}
+
+variable "tectonic_azure_external_resource_group" {
+  type        = "string"
+  description = "Name of an existing resource group to deploy resources into. Example: tectonic-cluster. Leave blank to create a new resource group."
+  default     = ""
+}
+
+variable "tectonic_azure_external_master_subnet" {
+  type        = "string"
+  description = "Name of the existing master subnet to launch nodes into. Example: tectonic-master-subnet"
+  default     = ""
+}
+
+variable "tectonic_azure_external_worker_subnet" {
+  type        = "string"
+  description = "Name of the existing master subnet to launch nodes into. Example: tectonic-worker-subnet"
   default     = ""
 }
