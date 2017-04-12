@@ -40,6 +40,7 @@ module "masters" {
   source = "../../modules/vmware/master"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   resolv_conf_content = <<EOF
 search ${var.tectonic_base_domain}
@@ -52,6 +53,9 @@ EOF
 =======
   count                   = "${var.tectonic_master_count}"
 >>>>>>> Update Terraform.tfvars example with comments, Fix issue with the main.tf regarding count of machines
+=======
+
+>>>>>>> Update modules to support multi node count
   kubeconfig_content           = "${module.bootkube.kubeconfig}"
   cluster_name                 = "${var.tectonic_cluster_name}"
   count                        = "${var.tectonic_master_count}"
@@ -86,6 +90,7 @@ module "workers" {
   source = "../../modules/vmware/worker"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   resolv_conf_content = <<EOF
 search ${var.tectonic_base_domain}
@@ -98,6 +103,9 @@ EOF
 =======
   count                   = "${var.tectonic_worker_count}"
 >>>>>>> Update Terraform.tfvars example with comments, Fix issue with the main.tf regarding count of machines
+=======
+
+>>>>>>> Update modules to support multi node count
   kubeconfig_content           = "${module.bootkube.kubeconfig}"
   cluster_name                 = "${var.tectonic_cluster_name}"
   count                        = "${var.tectonic_worker_count}"
