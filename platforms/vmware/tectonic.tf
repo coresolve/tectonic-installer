@@ -63,7 +63,7 @@ resource "null_resource" "tectonic" {
   depends_on = ["module.tectonic", "module.masters", "module.cloudprovider"]
 
   connection {
-    host        = "${var.tectonic_cluster_name}-k8s.${var.tectonic_base_domain}"
+    host        = "${module.masters.ip_address[0]}"
     private_key = "${module.secrets.core_private_key_pem}"
     user        = "core"
   }

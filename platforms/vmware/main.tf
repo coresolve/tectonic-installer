@@ -78,7 +78,7 @@ EOF
   vm_disk_template        = "${var.tectonic_vmware_vm_template}"
   vm_disk_template_folder = "${var.tectonic_vmware_vm_template_folder}"
   vmware_folder           = "${var.tectonic_vmware_folder}"
-  etcd_fqdns              = ["${module.etcd.ip_address}"]
+  etcd_fqdns              = ["${module.etcd.name}"]
   dns_server              = "${var.tectonic_vmware_vm_dns}"
   ip_address              = "${var.tectonic_vmware_vm_masterips}"
   gateway                 = "${var.tectonic_vmware_vm_mastergateway}"
@@ -128,7 +128,7 @@ EOF
   vm_disk_template        = "${var.tectonic_vmware_vm_template}"
   vm_disk_template_folder = "${var.tectonic_vmware_vm_template_folder}"
   vmware_folder           = "${var.tectonic_vmware_folder}"
-  etcd_fqdns              = ["${module.etcd.ip_address}"]
+  etcd_fqdns              = ["${module.etcd.name}"]
   dns_server              = "${var.tectonic_vmware_vm_dns}"
   ip_address              = "${var.tectonic_vmware_vm_workerips}"
   gateway                 = "${var.tectonic_vmware_vm_workergateway}"
