@@ -100,6 +100,17 @@ variable "tectonic_vmware_vm_masterips" {
   description = "terraform map of Virtual Machine IPs"
 }
 
+variable "tectonic_vmware_vm_masterips" {
+  type = "map"
+  description = "terraform map of Virtual Machine IPs"
+}
+
+variable "tectonic_vmware_vm_master_hostnames" {
+  type = "map"
+  description = "terraform map of Virtual Machine Hostnames"
+}
+
+
 variable "tectonic_vmware_vm_mastergateway" {
   type = "string"
   description = "gateway IP address for Master Virtual Machine"
@@ -113,6 +124,16 @@ variable "tectonic_vmware_vm_workerips" {
 variable "tectonic_vmware_vm_workergateway" {
   type = "string"
   description = "tgateway IP address for Worker Virtual Machine "
+}
+
+variable "tectonic_vmware_vm_worker_hostnames" {
+  type = "map"
+  description = "terraform map of Virtual Machine Hostnames"
+}
+
+variable "tectonic_vmware_vm_etcd_hostnames" {
+  type = "map"
+  description = "terraform map of Virtual Machine Hostnames"
 }
 
 variable "tectonic_vmware_vm_etcdips" {

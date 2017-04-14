@@ -68,7 +68,7 @@ resource "ignition_file" "hostname-worker" {
   filesystem = "root"
 
   content {
-    content = "${var.cluster_name}-worker-${count.index}"
+    content = "${var.hostname["${count.index}"]}"
   }
 }
 

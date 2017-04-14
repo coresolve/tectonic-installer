@@ -69,7 +69,7 @@ resource "ignition_file" "hostname-master" {
   filesystem = "root"
 
   content {
-    content = "${var.cluster_name}-master-${count.index}"
+    content = "${var.hostname["${count.index}"]}"
   }
 }
 

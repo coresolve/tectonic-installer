@@ -77,7 +77,7 @@ resource "ignition_file" "hostname-etcd" {
   filesystem = "root"
 
   content {
-    content = "${var.cluster_name}-etcd-${count.index}"
+    content = "${var.hostname["${count.index}"]}"
   }
 }
 

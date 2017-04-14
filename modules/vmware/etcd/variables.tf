@@ -84,3 +84,8 @@ variable gateway {
   type = "string"
   description = "Gateway of the node"
 }
+
+variable hostname {
+  type = "map"
+  description = "Hostname of the node"
+}

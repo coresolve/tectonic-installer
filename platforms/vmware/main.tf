@@ -19,7 +19,7 @@ module "etcd" {
   container_image         = "${var.tectonic_container_images["etcd"]}"
   base_domain             = "${var.tectonic_base_domain}"
   external_endpoints      = ["${compact(var.tectonic_etcd_servers)}"]
-
+  hostname                = "${var.tectonic_vmware_vm_etcd_hostnames}"
   vmware_datacenter       = "${var.tectonic_vmware_datacenter}"
   vmware_cluster          = "${var.tectonic_vmware_cluster}"
   vm_vcpu                 = "${var.tectonic_vmware_etcd_vm_vcpu}"
@@ -62,6 +62,7 @@ EOF
   kube_image_url               = "${data.null_data_source.local.outputs.kube_image_url}"
   kube_image_tag               = "${data.null_data_source.local.outputs.kube_image_tag}"
   tectonic_versions            = "${var.tectonic_versions}"
+  hostname                = "${var.tectonic_vmware_vm_master_hostnames}"
   base_domain             = "${var.tectonic_base_domain}"
   tectonic_kube_dns_service_ip = "${var.tectonic_kube_dns_service_ip}"
   vmware_username              = "${var.tectonic_vmware_username}"
@@ -111,6 +112,7 @@ EOF
   count                        = "${var.tectonic_worker_count}"
   kube_image_url               = "${data.null_data_source.local.outputs.kube_image_url}"
   kube_image_tag               = "${data.null_data_source.local.outputs.kube_image_tag}"
+  hostname                     = "${var.tectonic_vmware_vm_worker_hostnames}"
   tectonic_versions            = "${var.tectonic_versions}"
   tectonic_kube_dns_service_ip = "${var.tectonic_kube_dns_service_ip}"
   base_domain             = "${var.tectonic_base_domain}"
