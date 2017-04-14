@@ -100,11 +100,6 @@ variable "tectonic_vmware_vm_masterips" {
   description = "terraform map of Virtual Machine IPs"
 }
 
-variable "tectonic_vmware_vm_masterips" {
-  type = "map"
-  description = "terraform map of Virtual Machine IPs"
-}
-
 variable "tectonic_vmware_vm_master_hostnames" {
   type = "map"
   description = "terraform map of Virtual Machine Hostnames"

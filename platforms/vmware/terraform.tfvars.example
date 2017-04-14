@@ -96,19 +96,13 @@ tectonic_vmware_vm_masterips = {
 
 tectonic_vmware_vm_worker_hostnames = {
   "0" = "vsphere-worker0"
-  "1" = "vsphere-worker1
+  "1" = "vsphere-worker1"
 }
 
 tectonic_vmware_vm_workerips = {
   "0" = "192.168.246.30/24"
   "1" = "192.168.246.31/24"
 }
-
-
-
-
-
-
 
 tectonic_vmware_vm_etcdgateway = "192.168.246.1"
 tectonic_vmware_vm_mastergateway = "192.168.246.1"
