@@ -102,4 +102,10 @@ tectonic_vmware_vm_etcdgateway = "192.168.246.1"
 tectonic_vmware_vm_mastergateway = "192.168.246.1"
 tectonic_vmware_vm_workergateway = "192.168.246.1"
 tectonic_vmware_vm_dns = "192.168.246.100"
+<<<<<<< HEAD
 >>>>>>> This commit moves VMware manifests to static IP networking and removes the AWS Route53 dependency. End User is expected to create DNS records in advance since the user already pre-allocates the IP addresses
+=======
+
+tectonic_vmware_httpproxy = ""
+tectonic_vmware_httpsproxy = ""
+>>>>>>> http proxy support
