@@ -13,12 +13,6 @@ tectonic_master_count = 2 # Number of Master Nodes
 tectonic_worker_count = 2 # Number of Worker Nodes
 tectonic_etcd_count = 3 # Number of etcd nodes
 
-tectonic_cl_channel = "stable" # Container Linux update channel
-
-tectonic_update_server = ""
-tectonic_update_channel = ""
-tectonic_update_app_id = ""
-
 tectonic_service_cidr = "10.3.0.0/24" # Service CIDR
 tectonic_cluster_cidr = "10.2.0.0/16" # Container/POD Network CIDR
 tectonic_kube_dns_service_ip = "10.3.0.10" # Kube-DNS IP Address, must be within Service CIDR range
