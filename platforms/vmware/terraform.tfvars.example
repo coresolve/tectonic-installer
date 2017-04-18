@@ -1,13 +1,8 @@
 tectonic_base_domain = "foo.bar" # DNS Zone of Tectonic Cluster
 tectonic_cluster_name = "foobar" # Cluster Name
 
-<<<<<<< HEAD
-tectonic_admin_email = "admin@example.com" # Initial Administrator email address
-tectonic_admin_password_hash = "$2a$12$k9wa31uE/4uD9aVtT/vNtOZwxXyEJ/9DwXXEYB/eUpb9fvEPsH/kO" # PASSWORD
-=======
 tectonic_admin_email = "admin@example.com" # Initial Administrator email address 
 tectonic_admin_password_hash = "$2a$12$k9wa31uE/4uD9aVtT/vNtOZwxXyEJ/9DwXXEYB/eUpb9fvEPsH/kO" # Welcome1
->>>>>>> Change Node Hostname variables
 
 tectonic_master_count = 2 # Number of Master Nodes
 tectonic_worker_count = 2 # Number of Worker Nodes
@@ -22,7 +17,6 @@ tectonic_ca_key_alg = "RSA"
 tectonic_ca_cert = ""
 tectonic_ca_key = ""
 
-<<<<<<< HEAD
 tectonic_license_path = "./license" # path to Tectonic License file
 tectonic_pull_secret_path = "./pull_secret" # path to Tectonic Pull Secret
 
@@ -39,11 +33,7 @@ tectonic_vmware_username = "Administrator@vsphere.local"
 tectonic_vmware_password = "VMware123!"
 tectonic_vmware_server = "192.168.246.20"
 tectonic_vmware_sslselfsigned = true
-<<<<<<< HEAD
 tectonic_vmware_folder = "vsphere"
-=======
-tectonic_vmware_folder = "vsphere"	
-=======
 tectonic_license_path = "tectonic-license.txt" # path to Tectonic License file
 tectonic_pull_secret_path = "config.json" # path to Tectonic Pull Secret
 
@@ -71,41 +61,36 @@ tectonic_vmware_vm_etcd_hostnames = {
   "1" = "vsphere-etcd1"
   "2" = "vsphere-etcd2"
 }
-
 tectonic_vmware_vm_etcdips = {
   "0" = "192.168.246.10/24"
   "1" = "192.168.246.11/24"
   "2" = "192.168.246.12/24"
 }
+tectonic_vmware_vm_etcdgateway = "192.168.246.1"
 
 tectonic_vmware_vm_master_hostnames = {
   "0" = "vsphere-master0"
   "1" = "vsphere-master1"
 }
-
 tectonic_vmware_vm_masterips = {
   "0" = "192.168.246.20/24"
   "1" = "192.168.246.21/24"
 }
+tectonic_vmware_vm_mastergateway = "192.168.246.1"
 
 tectonic_vmware_vm_worker_hostnames = {
   "0" = "vsphere-worker0"
   "1" = "vsphere-worker1"
 }
-
 tectonic_vmware_vm_workerips = {
   "0" = "192.168.246.30/24"
   "1" = "192.168.246.31/24"
 }
-
-tectonic_vmware_vm_etcdgateway = "192.168.246.1"
-tectonic_vmware_vm_mastergateway = "192.168.246.1"
 tectonic_vmware_vm_workergateway = "192.168.246.1"
-tectonic_vmware_vm_dns = "192.168.246.100"
-<<<<<<< HEAD
->>>>>>> This commit moves VMware manifests to static IP networking and removes the AWS Route53 dependency. End User is expected to create DNS records in advance since the user already pre-allocates the IP addresses
-=======
 
+tectonic_vmware_vm_dns = "192.168.246.100"
 tectonic_vmware_httpproxy = ""
 tectonic_vmware_httpsproxy = ""
->>>>>>> http proxy support
+
+tectonic_vmware_tectonicaddress = "tectonic"
+tectonic_vmware_apiaddress = "tectonic-api"
