@@ -35,6 +35,7 @@ module "etcd" {
   gateway                 = "${var.tectonic_vmware_vm_etcdgateway}"
   http_proxy              = "${var.tectonic_vmware_httpproxy}"
   https_proxy              = "${var.tectonic_vmware_httpsproxy}"
+  no_proxy                = "${var.tectonic_vmware_noproxy}"
 
 }
 
@@ -87,6 +88,7 @@ EOF
   gateway                 = "${var.tectonic_vmware_vm_mastergateway}"
   http_proxy              = "${var.tectonic_vmware_httpproxy}"
   https_proxy              = "${var.tectonic_vmware_httpsproxy}"
+  no_proxy                = "${var.tectonic_vmware_noproxy}"
 
   core_public_keys = ["${module.secrets.core_public_key_openssh}"]
 }
@@ -141,6 +143,7 @@ EOF
   core_public_keys = ["${module.secrets.core_public_key_openssh}"]
   http_proxy              = "${var.tectonic_vmware_httpproxy}"
   https_proxy              = "${var.tectonic_vmware_httpsproxy}"
+  no_proxy                = "${var.tectonic_vmware_noproxy}"
 }
 
 data "null_data_source" "local" {
