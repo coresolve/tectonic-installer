@@ -252,6 +252,34 @@ Note: This field MUST be set manually prior to creating the cluster.
 EOF
 }
 
+# Existing Certs.
+variable "tectonic_existing_certs" {
+  description = <<EOF
+A set of paths that point to tls assets that have been pregenerated for the cluster. You can provide as many or as few certs as desired. The certificate files can include an intermediate certificate if necessary.
+ca_crt_path:         The file location of a PEM-encoded CA certificate, used to generate the certificates that we will use to secure the tls enabled endpoints in tectonic.
+ca_key_path:         The file location of a PEM-encoded CA key, used to sign all of the generated certificates. If left blank one will be generated.
+ca_key_alg:          The algorithm used to generate the ca_key. The default value is recommended. This field is mandatory if `ca_key` is set.
+ingress_crt_path:    The file location of the certificate that will be used to secure the ingress controller in front of the console and identity services.
+                     This certificate should have the CN and Subject Alternate Name set. See RFC2818 for details
+ingress_key_path:    The file location of the key that will be used to secure the ingress controller in front of the console and identity services.
+apiserver_cert_path: The file location of the certificate that will be used to secure communication with the kube apiserver.
+                     This certificate should have the following Subject Alternate Names set: "The common name used to address the api server", "kubernetes", "kubernetes.default",¬"kubernetes.default.svc",¬"kubernetes.default.svc.cluster.local" and a SAN IP of 10.3.0.1
+apiserver_key_path:  The file location of the key that will be used to secure communication with the kube apiserver.
+EOF
+
+  type = "map"
+
+  default = {
+    ca_cert_path        = "/dev/null"
+    ca_key_path         = "/dev/null"
+    ca_key_alg          = "RSA"
+    ingress_cert_path   = "/dev/null"
+    ingress_key_path    = "/dev/null"
+    apiserver_cert_path = "/dev/null"
+    apiserver_key_path  = "/dev/null"
+  }
+}
+
 variable "tectonic_ca_cert" {
   type    = "string"
   default = ""

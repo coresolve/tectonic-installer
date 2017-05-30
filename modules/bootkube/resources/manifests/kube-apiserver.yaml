@@ -47,7 +47,7 @@ spec:
         - --kubelet-client-certificate=/etc/kubernetes/secrets/apiserver.crt
         - --kubelet-client-key=/etc/kubernetes/secrets/apiserver.key
         - --service-account-key-file=/etc/kubernetes/secrets/service-account.pub
-        - --client-ca-file=/etc/kubernetes/secrets/ca.crt
+        - --client-ca-file=/etc/kubernetes/secrets/client-ca.crt
         - --authorization-mode=RBAC
         - --anonymous-auth=${anonymous_auth}
         - --oidc-issuer-url=${oidc_issuer_url}
