@@ -3,6 +3,11 @@ variable "container_images" {
   type        = "map"
 }
 
+variable "existing_certs" {
+  description = "existing certs"
+  type        = "map"
+}
+
 variable "versions" {
   description = "Container versions to use"
   type        = "map"

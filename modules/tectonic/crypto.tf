@@ -15,11 +15,13 @@ resource "random_id" "console_secret" {
 # Ingress' server certificate
 
 resource "tls_private_key" "ingress" {
+  count     = "${var.existing_certs["ingress_key_path"] == "/dev/null" ? 1 : 0 }"
   algorithm = "RSA"
   rsa_bits  = "2048"
 }
 
 resource "tls_cert_request" "ingress" {
+  count     = "${var.existing_certs["ingress_key_path"] == "/dev/null" ? 1 : 0 }"
   key_algorithm   = "${tls_private_key.ingress.algorithm}"
   private_key_pem = "${tls_private_key.ingress.private_key_pem}"
 
@@ -35,11 +37,12 @@ resource "tls_cert_request" "ingress" {
 }
 
 resource "tls_locally_signed_cert" "ingress" {
+  count     = "${var.existing_certs["ingress_key_path"] == "/dev/null" ? 1 : 0 }"
   cert_request_pem = "${tls_cert_request.ingress.cert_request_pem}"
 
-  ca_key_algorithm   = "${var.ca_key_alg}"
-  ca_private_key_pem = "${var.ca_key}"
-  ca_cert_pem        = "${var.ca_cert}"
+  ca_key_algorithm   = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key_alg : var.existing_certs["ca_key_alg"]}"
+  ca_private_key_pem = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key : file(var.existing_certs["ca_key_path"])}"
+  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_cert : file(var.existing_certs["ca_cert_path"])}"
 
   validity_period_hours = 8760
 
@@ -70,9 +73,9 @@ resource "tls_cert_request" "identity-server" {
 resource "tls_locally_signed_cert" "identity-server" {
   cert_request_pem = "${tls_cert_request.identity-server.cert_request_pem}"
 
-  ca_key_algorithm   = "${var.ca_key_alg}"
-  ca_private_key_pem = "${var.ca_key}"
-  ca_cert_pem        = "${var.ca_cert}"
+  ca_key_algorithm   = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key_alg : var.existing_certs["ca_key_alg"]}"
+  ca_private_key_pem = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key : file(var.existing_certs["ca_key_path"])}"
+  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_cert : file(var.existing_certs["ca_cert_path"])}"
 
   validity_period_hours = 8760
 
@@ -98,9 +101,9 @@ resource "tls_cert_request" "identity-client" {
 resource "tls_locally_signed_cert" "identity-client" {
   cert_request_pem = "${tls_cert_request.identity-client.cert_request_pem}"
 
-  ca_key_algorithm   = "${var.ca_key_alg}"
-  ca_private_key_pem = "${var.ca_key}"
-  ca_cert_pem        = "${var.ca_cert}"
+  ca_key_algorithm   = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key_alg : var.existing_certs["ca_key_alg"]}"
+  ca_private_key_pem = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key : file(var.existing_certs["ca_key_path"])}"
+  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_cert : file(var.existing_certs["ca_cert_path"])}"
 
   validity_period_hours = 8760
 
