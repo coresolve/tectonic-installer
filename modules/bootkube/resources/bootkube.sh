@@ -19,4 +19,5 @@ mkdir -p /etc/kubernetes/manifests/
   ${bootkube_image} \
   --net=host \
   --dns=host \
+  --hosts-entry=host \
   --exec=/bootkube -- start --asset-dir=/assets

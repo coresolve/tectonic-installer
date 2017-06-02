@@ -43,6 +43,9 @@ spec:
     - mountPath: /var/lock
       name: var-lock
       readOnly: false
+    - mountPath: /etc/resolv.conf
+      name: resolv-conf
+      readOnly: true
   hostNetwork: true
   volumes:
   - name: secrets
@@ -54,3 +57,6 @@ spec:
   - name: var-lock
     hostPath:
       path: /var/lock
+  - name: resolv-conf
+    hostPath:
+      path: /etc/resolv.conf

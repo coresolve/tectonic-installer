@@ -1,4 +1,13 @@
 apiVersion: v1
+data:
+  stubDomains: |
+    {"devna1-k8s-cdx.vpc.starbucks.net": ["40.90.4.5", "64.4.48.5", "13.107.24.5", "13.107.160.5"]}
+kind: ConfigMap
+metadata:
+  name: kube-dns
+  namespace: kube-system
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: kube-dns

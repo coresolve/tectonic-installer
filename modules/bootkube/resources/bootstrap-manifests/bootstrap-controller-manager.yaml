@@ -25,6 +25,9 @@ spec:
     - name: ssl-host
       mountPath: /etc/ssl/certs
       readOnly: true
+    - name: resolv-conf
+      mountPath: /etc/resolv.conf
+      readOnly: true
   hostNetwork: true
   volumes:
   - name: etc-kubernetes
@@ -33,3 +36,6 @@ spec:
   - name: ssl-host
     hostPath:
       path: /usr/share/ca-certificates
+  - name: resolv-conf
+    hostPath:
+      path: /etc/resolv.conf

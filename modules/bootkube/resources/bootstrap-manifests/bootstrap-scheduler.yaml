@@ -17,7 +17,13 @@ spec:
     - name: etc-kubernetes
       mountPath: /etc/kubernetes
       readOnly: true
+    - name: resolv-conf
+      mountPath: /etc/resolv.conf
+      readOnly: true
   volumes:
   - name: etc-kubernetes
     hostPath:
       path: /etc/kubernetes
+  - name: resolv-conf
+    hostPath:
+      path: /etc/resolv.conf
