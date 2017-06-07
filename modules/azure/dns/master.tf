@@ -2,7 +2,8 @@ resource "azurerm_dns_a_record" "tectonic-api" {
   resource_group_name = "${var.resource_group_name}"
   zone_name           = "${azurerm_dns_zone.tectonic_azure_dns_zone.name}"
 
-  name    = "${var.cluster_name}-k8s"
+#  name    = "${var.cluster_name}-k8s"
+  name    = "kubeapiserver"
   ttl     = "60"
   records = ["${var.master_ip_addresses}"]
 
