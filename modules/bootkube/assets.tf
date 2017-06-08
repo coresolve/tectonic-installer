@@ -97,7 +97,9 @@ resource "template_dir" "bootkube" {
     oidc_groups_claim   = "${var.oidc_groups_claim}"
 
     ca_cert            = "${base64encode(var.existing_certs["ca_cert_path"] == "/dev/null" ? join(" ", tls_self_signed_cert.kube-ca.*.cert_pem) : "${file(var.existing_certs["ca_cert_path"])}${tls_self_signed_cert.kube-ca.0.cert_pem}")}"
-    client_ca_cert     = "${base64encode(tls_self_signed_cert.kube-ca.0.cert_pem)}"
+    client_ca_cert     = "${base64encode(var.existing_certs["ca_cert_path"] == "/dev/null" ? join(" ", tls_self_signed_cert.kube-ca.*.cert_pem) : file(var.existing_certs["ca_cert_path"]))}"
+    kubelet_cert       = "${base64encode(tls_locally_signed_cert.kubelet.cert_pem)}"
+    kubelet_key        = "${base64encode(tls_private_key.kubelet.private_key_pem)}"
     apiserver_key      = "${base64encode(var.existing_certs["apiserver_cert_path"] == "/dev/null" ? join(" ", tls_private_key.apiserver.*.private_key_pem) : file(var.existing_certs["apiserver_key_path"]))}"
     apiserver_cert     = "${base64encode(var.existing_certs["apiserver_cert_path"] == "/dev/null" ? join(" ", tls_locally_signed_cert.apiserver.*.cert_pem) : file(var.existing_certs["apiserver_cert_path"]))}"
     serviceaccount_pub = "${base64encode(tls_private_key.service-account.public_key_pem)}"

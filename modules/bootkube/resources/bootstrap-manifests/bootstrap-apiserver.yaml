@@ -24,8 +24,8 @@ spec:
     ${etcd_key_flag}
     - --insecure-port=0
     - --advertise-address=${advertise_address}
-    - --kubelet-client-certificate=/etc/kubernetes/secrets/apiserver.crt
-    - --kubelet-client-key=/etc/kubernetes/secrets/apiserver.key
+    - --kubelet-client-certificate=/etc/kubernetes/secrets/kubelet.crt
+    - --kubelet-client-key=/etc/kubernetes/secrets/kubelet.key
     - --secure-port=443
     - --service-account-key-file=/etc/kubernetes/secrets/service-account.pub
     - --service-cluster-ip-range=${service_cidr}
