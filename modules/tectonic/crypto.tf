@@ -42,7 +42,7 @@ resource "tls_locally_signed_cert" "ingress" {
 
   ca_key_algorithm   = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key_alg : var.existing_certs["ca_key_alg"]}"
   ca_private_key_pem = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key : file(var.existing_certs["ca_key_path"])}"
-  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_cert : file(var.existing_certs["ca_cert_path"])}"
+  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.local_ca_cert : file(var.existing_certs["ca_cert_path"])}"
 
   validity_period_hours = 8760
 
@@ -75,7 +75,7 @@ resource "tls_locally_signed_cert" "identity-server" {
 
   ca_key_algorithm   = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key_alg : var.existing_certs["ca_key_alg"]}"
   ca_private_key_pem = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key : file(var.existing_certs["ca_key_path"])}"
-  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_cert : file(var.existing_certs["ca_cert_path"])}"
+  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.local_ca_cert : file(var.existing_certs["ca_cert_path"])}"
 
   validity_period_hours = 8760
 
@@ -103,7 +103,7 @@ resource "tls_locally_signed_cert" "identity-client" {
 
   ca_key_algorithm   = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key_alg : var.existing_certs["ca_key_alg"]}"
   ca_private_key_pem = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_key : file(var.existing_certs["ca_key_path"])}"
-  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.ca_cert : file(var.existing_certs["ca_cert_path"])}"
+  ca_cert_pem        = "${var.existing_certs["ca_key_path"] == "/dev/null" ? var.local_ca_cert : file(var.existing_certs["ca_cert_path"])}"
 
   validity_period_hours = 8760
 
